@@ -1,5 +1,7 @@
 # copilot-agent-replay
 
+![copilot-agent-replay — record once, replay everywhere, compare what matters](assets/cover.jpg)
+
 Replay recorded GitHub Copilot agent sessions against different models to regression-test behavior before switching.
 
 ## Why
