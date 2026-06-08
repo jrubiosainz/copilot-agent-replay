@@ -1,0 +1,48 @@
+{
+  "session": {
+    "id": "sess-a1b2c3d4",
+    "title": "Refactor database connection pool",
+    "model": "gpt-5.2-codex",
+    "createdAt": "2026-06-07T14:30:00Z",
+    "repository": "myorg/backend-api",
+    "branch": "main",
+    "messages": [
+      {
+        "role": "user",
+        "content": "The connection pool is leaking under high load. Refactor db.js to use a proper pool manager with health checks."
+      },
+      {
+        "role": "assistant",
+        "content": "I'll analyze the current connection handling and implement a pool manager with health checks.",
+        "toolCalls": [
+          { "function": { "name": "readFile", "arguments": "{\"path\": \"src/db.js\"}" } }
+        ]
+      },
+      {
+        "role": "user",
+        "content": "Looks good. Now add graceful shutdown to drain connections."
+      },
+      {
+        "role": "assistant",
+        "content": "Adding graceful shutdown with a drain timeout.",
+        "toolCalls": [
+          { "function": { "name": "editFile", "arguments": "{\"path\": \"src/db.js\"}" } },
+          { "function": { "name": "writeFile", "arguments": "{\"path\": \"src/pool-manager.js\"}" } }
+        ]
+      },
+      {
+        "role": "user",
+        "content": "Add integration tests for the pool under load."
+      },
+      {
+        "role": "assistant",
+        "content": "Creating load tests with concurrent connections.",
+        "toolCalls": [
+          { "function": { "name": "writeFile", "arguments": "{\"path\": \"test/pool.integration.test.js\"}" } },
+          { "function": { "name": "runCommand", "arguments": "{\"command\": \"npm test\"}" } }
+        ]
+      }
+    ],
+    "filesModified": ["src/db.js", "src/pool-manager.js", "test/pool.integration.test.js"]
+  }
+}

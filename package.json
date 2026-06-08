@@ -1,0 +1,10 @@
+{
+  "name": "copilot-agent-replay",
+  "version": "1.0.0",
+  "description": "Replay recorded Copilot agent sessions against different models to regression-test behavior",
+  "main": "src/index.js",
+  "bin": { "agent-replay": "src/index.js" },
+  "scripts": { "test": "node test/replay.test.js" },
+  "keywords": ["copilot", "agent", "replay", "regression", "testing"],
+  "license": "MIT"
+}
